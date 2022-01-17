@@ -26,13 +26,21 @@ class _WelcomePageState extends State<WelcomePage> {
           return Container(
             width: double.maxFinite,
             height: double.maxFinite,
+            
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
                     "img/" + images[index],
                   ),
-                  fit: BoxFit.cover),
+                  fit: BoxFit.cover),                               
             ),
+            // InkWell(
+            //     onTap: () {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute(builder: (context) => AppSignIn()),
+            //       );
+            // },
             child: Container(
               margin: const EdgeInsets.only(top: 100, left: 20, right: 20),
               child: Row(

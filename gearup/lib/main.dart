@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gearup/pages/navpages/main_page.dart';
+import 'package:gearup/pages/sign_in/AppSignIn.dart';
+import 'package:gearup/pages/sign_in/AppSignUp.dart';
 import 'package:gearup/pages/welcome_page.dart';
 
 void main() {
@@ -20,9 +22,9 @@ class MyApp extends StatelessWidget {
 
       initialRoute: '/',
       routes: {
-        '/': (context)=>WelcomePage(),
-        // '/contacts':(context)=>Contact(),
-        // '/addContact': (context)=>AddContacts()
+        '/wel': (context) => WelcomePage(),
+        '/': (context) => AppSignIn(),
+        '/signUp': (context) => AppSingUp(),
       },
       // home:MainPage()
     );
