@@ -26,21 +26,13 @@ class _WelcomePageState extends State<WelcomePage> {
           return Container(
             width: double.maxFinite,
             height: double.maxFinite,
-            
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
                     "img/" + images[index],
                   ),
-                  fit: BoxFit.cover),                               
+                  fit: BoxFit.cover),
             ),
-            // InkWell(
-            //     onTap: () {
-            //       Navigator.push(
-            //         context,
-            //         MaterialPageRoute(builder: (context) => AppSignIn()),
-            //       );
-            // },
             child: Container(
               margin: const EdgeInsets.only(top: 100, left: 20, right: 20),
               child: Row(
@@ -74,10 +66,12 @@ class _WelcomePageState extends State<WelcomePage> {
                       return Container(
                         margin: const EdgeInsets.only(bottom: 4),
                         width: 8,
-                        height: index==indexDots?25:8,
+                        height: index == indexDots ? 25 : 8,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color:index==indexDots?AppColors.mainColorSecond:AppColors.mainColorSecond.withOpacity(0.3)),
+                            color: index == indexDots
+                                ? AppColors.mainColorSecond
+                                : AppColors.mainColorSecond.withOpacity(0.3)),
                       );
                     }),
                   )
