@@ -1,5 +1,8 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:gearup/http/userHttp.dart';
 import 'package:gearup/pages/sign_in/AppSignUp.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:motion_toast/motion_toast.dart';
@@ -11,9 +14,18 @@ class AppSignIn extends StatefulWidget {
 }
 
 class _AppSignInState extends State<AppSignIn> {
-  final _formkey = GlobalKey<FormState>();
-  String Password = '';
+  final loginform = GlobalKey<FormState>();
+
+  // variable
   String Email = '';
+  // variable
+  String Password = '';
+
+  Future<bool> loginPost(String Email, String Password) {
+    var res = HttpConnectUser().loginPosts(Email, Password);
+    return res;
+  }
+
   @override
   Widget build(BuildContext context) {
     String defaultFontFamily = 'Roboto-Light.ttf';
@@ -23,19 +35,20 @@ class _AppSignInState extends State<AppSignIn> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.only(left: 20, right: 20, top: 35, bottom: 50),
+        padding:
+            const EdgeInsets.only(left: 20, right: 20, top: 35, bottom: 50),
         width: double.infinity,
         height: double.infinity,
         color: Colors.white70,
         child: Form(
-          key: _formkey,
+          key: loginform,
           child: Column(
             children: <Widget>[
               Flexible(
                 flex: 1,
                 child: InkWell(
                   child: Container(
-                    child: Align(
+                    child: const Align(
                       alignment: Alignment.topLeft,
                       child: Icon(Icons.close),
                     ),
@@ -56,10 +69,13 @@ class _AppSignInState extends State<AppSignIn> {
                       alignment: Alignment.center,
                       child: Image.asset("img/logo1.png"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     TextFormField(
+                      onSaved: (value) {
+                        Email = value!;
+                      },
                       validator: MultiValidator([
                         RequiredValidator(errorText: "* Required"),
                         EmailValidator(errorText: 'Invalid Email')
@@ -67,7 +83,7 @@ class _AppSignInState extends State<AppSignIn> {
                       showCursor: true,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(
                             width: 0,
@@ -89,10 +105,13 @@ class _AppSignInState extends State<AppSignIn> {
                         hintText: "Email",
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     TextFormField(
+                      onSaved: (newValue) {
+                        Password = newValue!;
+                      },
                       validator: MultiValidator([
                         RequiredValidator(errorText: '* Required'),
                         MinLengthValidator(6,
@@ -101,7 +120,7 @@ class _AppSignInState extends State<AppSignIn> {
                       showCursor: true,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(
                             width: 0,
@@ -129,7 +148,7 @@ class _AppSignInState extends State<AppSignIn> {
                         hintText: "Password",
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Container(
@@ -145,7 +164,7 @@ class _AppSignInState extends State<AppSignIn> {
                         textAlign: TextAlign.end,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Container(
@@ -156,7 +175,7 @@ class _AppSignInState extends State<AppSignIn> {
                           padding: EdgeInsets.all(17.0),
                           primary: Colors.green.shade600,
                           onPrimary: Colors.white,
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                               color: Colors.black,
                               fontSize: 20,
                               fontStyle: FontStyle.normal),
@@ -164,30 +183,36 @@ class _AppSignInState extends State<AppSignIn> {
                               borderRadius: new BorderRadius.circular(15.0),
                               side: BorderSide(color: Colors.green)),
                         ),
-                        onPressed: () {
-                          if (_formkey.currentState!.validate()) {
-                            _formkey.currentState!.save();
-                            // Fluttertoast.showToast(
-                            //     msg: "Successfull", backgroundColor: Colors.green);
-                            MotionToast.success(
-                              description: Text("Data saved Successfully"),
-                              title: Text('Success'),
-                              toastDuration: Duration(seconds: 3),
-                            ).show(context);
+                        onPressed: () async {
+                          if (loginform.currentState!.validate()) {
+                            loginform.currentState!.save();
+                            var res = await loginPost(Email, Password);
+                            if (res) {
+                              Navigator.pushNamed(context, '/wel');
+                              MotionToast.success(
+                                      description:
+                                          const Text('Login Successfull'))
+                                  .show(context);
+                            } else {
+                              MotionToast.error(
+                                      description:
+                                          const Text('Login UnSuccessfull'))
+                                  .show(context);
+                            }
                           } else {
                             // Fluttertoast.showToast(
                             //     msg: "Unsuccessfull", backgroundColor: Colors.red);
                             MotionToast.error(
-                              description: Text("Unsuccessfull"),
-                              title: Text('error'),
+                              description: const Text("Unsuccessfull"),
+                              title: const Text('error'),
                             ).show(context);
                           }
                         },
                       ),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           shape: BoxShape.circle, color: Color(0xFFF2F3F7)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                   ],
