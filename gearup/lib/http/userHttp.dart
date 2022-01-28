@@ -14,17 +14,16 @@ class HttpConnectUser {
       "name": user.name,
       "email": user.email,
       "password": user.password,
-      "avatar": user.avatar,
     };
 
     final response =
         await post(Uri.parse(baseurl + '/register'), body: userMap);
-    if (response.statusCode == 200) {
-      var usrRes = ResponseUser.fromJson(jsonDecode(response.body));
-      return usrRes.success!;
-    } else {
-      return false;
-    }
+        if (response.statusCode == 200) {
+          var usrRes = ResponseUser.fromJson(jsonDecode(response.body));
+          return usrRes.success!;
+        } else {
+          return false;
+        }
   }
 
   //sending data to the server- login as user

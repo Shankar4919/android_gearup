@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:gearup/http/userHttp.dart';
 import 'package:gearup/pages/sign_in/AppSignIn.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:motion_toast/motion_toast.dart';
+import '../../model/user.dart';
 
 class AppSingUp extends StatefulWidget {
+  const AppSingUp({Key? key}) : super(key: key);
   @override
   State<AppSingUp> createState() => _AppSingUpState();
 }
 
 class _AppSingUpState extends State<AppSingUp> {
-  final _formkey = GlobalKey<FormState>();
+  final regform = GlobalKey<FormState>();
+  String name = '';
+  String email = '';
+  String password = '';
+
+  Future<bool> registerUser(User u) {
+    var res = HttpConnectUser().registerPost(u);
+    return res;
+  }
+
   @override
   Widget build(BuildContext context) {
     String defaultFontFamily = 'Roboto-Light.ttf';
@@ -19,20 +31,21 @@ class _AppSingUpState extends State<AppSingUp> {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.only(left: 20, right: 20, top: 35, bottom: 30),
+        padding:
+            const EdgeInsets.only(left: 20, right: 20, top: 35, bottom: 30),
         width: double.infinity,
         height: double.infinity,
         color: Colors.white54,
         //child:ListView() and remove resizeToAvoidBottomInset
         child: Form(
-          key: _formkey,
+          key: regform,
           child: ListView(
             children: <Widget>[
               Flexible(
                 flex: 1,
                 child: InkWell(
                   child: Container(
-                    child: Align(
+                    child: const Align(
                       alignment: Alignment.topLeft,
                       child: Icon(Icons.close),
                     ),
@@ -53,17 +66,20 @@ class _AppSingUpState extends State<AppSingUp> {
                       alignment: Alignment.center,
                       child: Image.asset("img/logo1.png"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     TextFormField(
+                      onSaved: (value) {
+                        name = value!;
+                      },
                       validator: MultiValidator([
                         RequiredValidator(errorText: '* Required'),
                       ]),
                       showCursor: true,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(
                             width: 0,
@@ -85,10 +101,13 @@ class _AppSingUpState extends State<AppSingUp> {
                         hintText: "User Name",
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     TextFormField(
+                      onSaved: (value) {
+                        email = value!;
+                      },
                       validator: MultiValidator([
                         RequiredValidator(errorText: "* Required"),
                         EmailValidator(errorText: 'Invalid Email')
@@ -96,7 +115,7 @@ class _AppSingUpState extends State<AppSingUp> {
                       showCursor: true,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(
                             width: 0,
@@ -118,10 +137,13 @@ class _AppSingUpState extends State<AppSingUp> {
                         hintText: "Email",
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     TextFormField(
+                      onSaved: (value) {
+                        password = value!;
+                      },
                       validator: MultiValidator([
                         RequiredValidator(errorText: '* Required'),
                         MinLengthValidator(6,
@@ -130,7 +152,7 @@ class _AppSingUpState extends State<AppSingUp> {
                       showCursor: true,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(
                             width: 0,
@@ -153,7 +175,7 @@ class _AppSingUpState extends State<AppSingUp> {
                         hintText: "Password",
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Container(
@@ -164,7 +186,7 @@ class _AppSingUpState extends State<AppSingUp> {
                           padding: EdgeInsets.all(17.0),
                           primary: Colors.green.shade600,
                           onPrimary: Colors.white,
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                               color: Colors.black,
                               fontSize: 20,
                               fontStyle: FontStyle.normal),
@@ -172,30 +194,41 @@ class _AppSingUpState extends State<AppSingUp> {
                               borderRadius: new BorderRadius.circular(15.0),
                               side: BorderSide(color: Colors.green)),
                         ),
-                        onPressed: () {
-                          if (_formkey.currentState!.validate()) {
-                            _formkey.currentState!.save();
-                            // Fluttertoast.showToast(
-                            //     msg: "Successfull", backgroundColor: Colors.green);
-                            MotionToast.success(
-                              description: Text("Data saved Successfully"),
-                              title: Text('Success'),
-                              toastDuration: Duration(seconds: 3),
-                            ).show(context);
+                        onPressed: () async {
+                          if (regform.currentState!.validate()) {
+                            regform.currentState!.save();
+                            User u = User(
+                              name: name,
+                              email: email,
+                              password: password,
+                            );
+                            bool isCreated = await registerUser(u);
+                            if (isCreated == false) {
+                              Navigator.pushNamed(context, '/');
+                              MotionToast.success(
+                                      description:
+                                          const Text('New user created'))
+                                  .show(context);
+                            } else {
+                              MotionToast.error(
+                                      description:
+                                          const Text('Failed to create user'))
+                                  .show(context);
+                            }
                           } else {
                             // Fluttertoast.showToast(
                             //     msg: "Unsuccessfull", backgroundColor: Colors.red);
                             MotionToast.error(
-                              description: Text("Unsuccessfull"),
-                              title: Text('error'),
+                              description: const Text("Unsuccessfull"),
+                              title: const Text('error'),
                             ).show(context);
                           }
                         },
                       ),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           shape: BoxShape.circle, color: Color(0xFFF2F3F7)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                   ],
