@@ -16,14 +16,19 @@ class HttpConnectUser {
       "password": user.password,
     };
 
-    final response =
-        await post(Uri.parse(baseurl + '/register'), body: userMap);
-        if (response.statusCode == 200) {
-          var usrRes = ResponseUser.fromJson(jsonDecode(response.body));
-          return usrRes.success!;
-        } else {
-          return false;
-        }
+    var headers = {
+      'Content-Type': 'application/json',
+    };
+
+    final response = await post(Uri.parse(baseurl + '/register'),
+        headers: headers, body: jsonEncode(userMap));
+    // print(response.statusCode);
+    if (response.statusCode == 201) {
+      var usrRes = ResponseUser.fromJson(jsonDecode(response.body));
+      return usrRes.success!;
+    } else {
+      return false;
+    }
   }
 
   //sending data to the server- login as user

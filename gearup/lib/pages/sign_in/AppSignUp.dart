@@ -203,7 +203,7 @@ class _AppSingUpState extends State<AppSingUp> {
                               password: password,
                             );
                             bool isCreated = await registerUser(u);
-                            if (isCreated == false) {
+                            if (isCreated) {
                               Navigator.pushNamed(context, '/');
                               MotionToast.success(
                                       description:
