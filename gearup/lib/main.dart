@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gearup/pages/navpages/main_page.dart';
+import 'package:gearup/pages/sign_in/AppSignIn.dart';
+import 'package:gearup/pages/sign_in/AppSignUp.dart';
 import 'package:gearup/pages/welcome_page.dart';
 
 void main() {
@@ -6,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:WelcomePage()
+
+      initialRoute: '/',
+      routes: {
+        '/wel': (context) => WelcomePage(),
+        '/': (context) => AppSignIn(),
+        '/signUp': (context) => AppSingUp(),
+      },
+      // home:MainPage()
     );
   }
 }

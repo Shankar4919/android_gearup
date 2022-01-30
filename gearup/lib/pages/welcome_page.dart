@@ -58,6 +58,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       SizedBox(height: 40),
                       ResponsiveButton(
                         width: 120,
+                        
                       )
                     ],
                   ),
@@ -66,10 +67,12 @@ class _WelcomePageState extends State<WelcomePage> {
                       return Container(
                         margin: const EdgeInsets.only(bottom: 4),
                         width: 8,
-                        height: index==indexDots?25:8,
+                        height: index == indexDots ? 25 : 8,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color:index==indexDots?AppColors.mainColorSecond:AppColors.mainColorSecond.withOpacity(0.3)),
+                            color: index == indexDots
+                                ? AppColors.mainColorSecond
+                                : AppColors.mainColorSecond.withOpacity(0.3)),
                       );
                     }),
                   )
