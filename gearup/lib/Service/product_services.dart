@@ -100,7 +100,6 @@ class ProductServices {
     return ResponseDefault.fromJson(jsonDecode(resp.body));
   }
 
-  
   Future<ResponseDefault> addNewProduct(String name, String description,
       String stock, String price, String uidCategory, String image) async {
     final token = await secureStorage.readToken();
@@ -132,7 +131,16 @@ class ProductServices {
     return ResponseOrderBuy.fromJson(jsonDecode(response.body)).orderBuy;
   }
 
-  
+  Future<List<OrderDetail>> getOrderDetails(String uidOrder) async {
+    final token = await secureStorage.readToken();
+
+    final response = await http.get(
+      Uri.parse('${URLS.urlApi}/product/get-orders-details/' + uidOrder),
+      headers: {'Content-type': 'application/json', 'xxx-token': token!},
+    );
+    return ResponseOrderDetails.fromJson(jsonDecode(response.body))
+        .orderDetails;
+  }
 }
 
 final productServices = ProductServices();
