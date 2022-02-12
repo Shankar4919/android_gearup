@@ -101,6 +101,38 @@ class ProductServices {
   }
 
   
+  Future<ResponseDefault> addNewProduct(String name, String description,
+      String stock, String price, String uidCategory, String image) async {
+    final token = await secureStorage.readToken();
+
+    var request = http.MultipartRequest(
+        'POST', Uri.parse('${URLS.urlApi}/product/add-new-product'))
+      ..headers['Accept'] = 'application/json'
+      ..headers['xxx-token'] = token!
+      ..fields['name'] = name
+      ..fields['description'] = description
+      ..fields['stock'] = stock
+      ..fields['price'] = price
+      ..fields['uidCategory'] = uidCategory
+      ..files.add(await http.MultipartFile.fromPath('productImage', image));
+
+    final resp = await request.send();
+    var data = await http.Response.fromStream(resp);
+
+    return ResponseDefault.fromJson(jsonDecode(data.body));
+  }
+
+  Future<List<OrderBuy>> getPurchasedProducts() async {
+    final token = await secureStorage.readToken();
+
+    final response = await http.get(
+      Uri.parse('${URLS.urlApi}/product/get-all-purchased-products'),
+      headers: {'Content-type': 'application/json', 'xxx-token': token!},
+    );
+    return ResponseOrderBuy.fromJson(jsonDecode(response.body)).orderBuy;
+  }
+
+  
 }
 
 final productServices = ProductServices();
