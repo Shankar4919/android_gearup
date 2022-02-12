@@ -39,6 +39,67 @@ class ProductServices {
     return ResponseProductsHome.fromJson(jsonDecode(resp.body)).listProducts;
   }
 
+  Future<ResponseDefault> addOrDeleteProductFavorite(String uidProduct) async {
+    final token = await secureStorage.readToken();
+
+    final resp = await http.post(
+        Uri.parse('${URLS.urlApi}/product/like-or-unlike-product'),
+        headers: {'Accept': 'application/json', 'xxx-token': token!},
+        body: {'uidProduct': uidProduct});
+    return ResponseDefault.fromJson(jsonDecode(resp.body));
+  }
+
+  Future<List<Categories>> getAllCategories() async {
+    final token = await secureStorage.readToken();
+
+    final resp = await http.get(
+        Uri.parse('${URLS.urlApi}/category/get-all-categories'),
+        headers: {'Accept': 'application/json', 'xxx-token': token!});
+    return ResponseCategoriesHome.fromJson(jsonDecode(resp.body)).categories;
+  }
+
+  Future<List<ListProducts>> allFavoriteProducts() async {
+    final token = await secureStorage.readToken();
+
+    final resp = await http.get(
+      Uri.parse('${URLS.urlApi}/product/get-all-favorite'),
+      headers: {'Accept': 'application/json', 'xxx-token': token!},
+    );
+
+    return ResponseProductsHome.fromJson(jsonDecode(resp.body)).listProducts;
+  }
+
+  Future<List<ListProducts>> getProductsForCategories(String id) async {
+    final token = await secureStorage.readToken();
+
+    final resp = await http.get(
+      Uri.parse('${URLS.urlApi}/product/get-products-for-category/' + id),
+      headers: {'Content-type': 'application/json', 'xxx-token': token!},
+    );
+
+    return ResponseProductsHome.fromJson(jsonDecode(resp.body)).listProducts;
+  }
+
+  Future<ResponseDefault> saveOrderBuyProductToDatabase(
+      String receipt, String amount, List<ProductCart> products) async {
+    final token = await secureStorage.readToken();
+
+    Map<String, dynamic> data = {
+      'receipt': receipt,
+      'amount': amount,
+      'products': products
+    };
+
+    final body = json.encode(data);
+
+    final resp = await http.post(
+        Uri.parse('${URLS.urlApi}/product/save-order-buy-product'),
+        headers: {'Content-type': 'application/json', 'xxx-token': token!},
+        body: body);
+
+    return ResponseDefault.fromJson(jsonDecode(resp.body));
+  }
+
   
 }
 
