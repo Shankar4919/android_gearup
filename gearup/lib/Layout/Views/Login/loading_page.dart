@@ -63,23 +63,20 @@ class _LoadingPageState extends State<LoadingPage>
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xff1E4DD8),
+        backgroundColor: Color(0xff16b13a),
         body: Center(
             child: SizedBox(
-          height: 212,
-          width: 181,
+          height: 210,
+          width: 160,
           child: Column(
             children: [
               AnimatedBuilder(
                 animation: _animationController,
                 builder: (_, child) => Transform.scale(
                   scale: _animation.value,
-                  child: Image.asset('assets/logo-white.png'),
+                  child: Image.asset('assets/bicycle.png'),
                 ),
               ),
-              const SizedBox(height: 10.0),
-              const TextFrave(
-                  text: 'Verifying your device...', color: Colors.white60)
             ],
           ),
         )),

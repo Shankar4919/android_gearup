@@ -5,7 +5,7 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:e_commers/Accessory/helpers.dart';
 import 'package:e_commers/Accessory/validation_form.dart';
 import 'package:e_commers/Layout/Views/Login/login_page.dart';
-import 'package:e_commers/Layout/themes/colors_frave.dart';
+import 'package:e_commers/Layout/themes/colors_gearUp.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -83,10 +83,8 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           actions: [
             TextButton(
-              child: const TextFrave(
-                  text: 'Log In',
-                  fontSize: 17,
-                  color: ColorsFrave.primaryColorFrave),
+              child: const TextGearUp(
+                  text: 'Log In', fontSize: 17, color: ColorsGearUp.greenColor),
               onPressed: () =>
                   Navigator.of(context).pushReplacementNamed('signInPage'),
             ),
@@ -100,39 +98,39 @@ class _SignUpPageState extends State<SignUpPage> {
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             physics: BouncingScrollPhysics(),
             children: [
-              TextFrave(
-                  text: 'Welcome to GearUp Football Store',
+              TextGearUp(
+                  text: 'Welcome to GearUp ',
                   fontSize: 24,
                   fontWeight: FontWeight.w600),
               SizedBox(height: 5.0),
-              TextFrave(text: 'Create Account', fontSize: 17),
+              TextGearUp(text: 'Create Account', fontSize: 17),
               SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGearUp(
                 hintText: 'Username',
                 prefixIcon: Icon(Icons.person),
                 controller: userController,
                 validator: RequiredValidator(errorText: 'Username is required'),
               ),
               SizedBox(height: 15.0),
-              TextFormFrave(
+              TextFormGearUp(
                   hintText: 'Email Address',
                   keyboardType: TextInputType.emailAddress,
                   prefixIcon: Icon(Icons.email_outlined),
                   controller: emailController,
                   validator: validatedEmail),
               SizedBox(height: 15.0),
-              TextFormFrave(
+              TextFormGearUp(
                 hintText: 'Password',
-                prefixIcon: Icon(Icons.vpn_key_rounded),
+                prefixIcon: Icon(Icons.lock),
                 isPassword: true,
                 controller: passowrdController,
                 validator: passwordValidator,
               ),
               SizedBox(height: 15.0),
-              TextFormFrave(
-                  hintText: 'Repeat Password',
+              TextFormGearUp(
+                  hintText: 'Confirm Password',
                   controller: passController,
-                  prefixIcon: Icon(Icons.vpn_key_rounded),
+                  prefixIcon: Icon(Icons.lock),
                   isPassword: true,
                   validator: (val) =>
                       MatchValidator(errorText: 'Password do not macth ')
@@ -140,16 +138,16 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(height: 25.0),
               Row(
                 children: const [
-                  Icon(Icons.check_circle_rounded, color: Color(0xff0C6CF2)),
-                  TextFrave(
-                    text: ' I Agree to Frave Shop ',
+                  Icon(Icons.check_circle_rounded, color: Color(0xff16b13a)),
+                  TextGearUp(
+                    text: ' I Agree to GearUp ',
                     fontSize: 15,
                   ),
-                  TextFrave(
+                  TextGearUp(
                       text: ' Terms of Use',
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xff0C6CF2)),
+                      color: Color(0xff16b13a)),
                 ],
               ),
               SizedBox(height: 25.0),

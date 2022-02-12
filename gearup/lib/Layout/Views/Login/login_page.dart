@@ -65,10 +65,10 @@ class _SignInPageState extends State<SignInPage> {
           ),
           actions: [
             TextButton(
-              child: TextFrave(
+              child: TextGearUp(
                 text: 'Register',
                 fontSize: 18,
-                color: Color(0xff0C6CF2),
+                color: Color(0xff16b13a),
               ),
               onPressed: () =>
                   Navigator.of(context).pushReplacementNamed('signUpPage'),
@@ -85,32 +85,32 @@ class _SignInPageState extends State<SignInPage> {
               physics: BouncingScrollPhysics(),
               children: [
                 const SizedBox(height: 20),
-                const TextFrave(
-                    text: 'Welcome Back!',
+                const TextGearUp(
+                    text: 'Welcome',
                     fontSize: 34,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xff0C6CF2)),
+                    color: Color(0xff16b13a)),
                 const SizedBox(height: 5),
-                const TextFrave(text: 'Sign In to your account', fontSize: 18),
+                const TextGearUp(text: 'Sign In to your account', fontSize: 18),
                 const SizedBox(height: 35),
-                TextFormFrave(
+                TextFormGearUp(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   validator: validatedEmail,
-                  hintText: 'Enter your Email ID',
+                  hintText: 'Enter your Email',
                   prefixIcon: Icon(Icons.alternate_email_rounded),
                 ),
                 const SizedBox(height: 20),
-                TextFormFrave(
+                TextFormGearUp(
                   controller: _passowrdController,
                   isPassword: isChangeSuffixIcon,
                   hintText: 'Enter your password',
-                  prefixIcon: Icon(Icons.password_rounded),
+                  prefixIcon: Icon(Icons.lock),
                   validator: passwordValidator,
                 ),
                 const SizedBox(height: 40),
                 BtnFrave(
-                  text: 'Continue',
+                  text: 'Sign In',
                   width: size.width,
                   fontSize: 20,
                   onPressed: () {
@@ -124,7 +124,7 @@ class _SignInPageState extends State<SignInPage> {
                 Align(
                   alignment: Alignment.center,
                   child: TextButton(
-                      child: TextFrave(
+                      child: TextGearUp(
                           text: 'Forgot password?',
                           color: Colors.black,
                           fontSize: 17),
