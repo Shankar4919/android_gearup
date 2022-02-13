@@ -8,26 +8,19 @@ part 'cart_event.dart';
 part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
-  
-  CartBloc() : super(CartInitial()){
-
+  CartBloc() : super(CartInitial()) {
     on<OnSelectCardEvent>(_selectCard);
     on<OnMakePaymentEvent>(_makePayment);
-
   }
 
-
-  Future<void> _selectCard( OnSelectCardEvent event, Emitter<CartState> emit ) async {
-
-    emit( SetActiveCardState(active: true, creditCard: event.creditCardFrave) );
-
+  Future<void> _selectCard(
+      OnSelectCardEvent event, Emitter<CartState> emit) async {
+    emit(SetActiveCardState(active: true, creditCard: event.creditCardFrave));
   }
 
-
-  Future<void> _makePayment( OnMakePaymentEvent event, Emitter<CartState> emit ) async {
-
+  Future<void> _makePayment(
+      OnMakePaymentEvent event, Emitter<CartState> emit) async {
     try {
-
       emit(LoadingPaymentState());
 
       // final mesAnio = event.creditCardFrave.expiracyDate.split('/');
@@ -47,12 +40,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       // } else {
       //   emit(FailurePaymentState(resp.msg));
       // }
-      
+
     } catch (e) {
       emit(FailurePaymentState(e.toString()));
     }
-
   }
-
-
 }

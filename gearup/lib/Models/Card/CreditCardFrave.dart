@@ -1,6 +1,4 @@
-
-class CreditCardFrave {
-
+class CreditCard {
   final String cardNumberHidden;
   final String cardNumber;
   final String brand;
@@ -8,13 +6,11 @@ class CreditCardFrave {
   final String expiracyDate;
   final String cardHolderName;
 
-  CreditCardFrave({
-    required this.cardNumberHidden, 
-    required this.cardNumber, 
-    required this.brand, 
-    required this.cvv, 
-    required this.expiracyDate, 
-    required this.cardHolderName
-  });
-
+  CreditCard(
+      {required this.cardNumberHidden,
+      required this.cardNumber,
+      required this.brand,
+      required this.cvv,
+      required this.expiracyDate,
+      required this.cardHolderName});
 }

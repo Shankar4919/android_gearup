@@ -1,7 +1,10 @@
 import 'dart:math' as math;
+import 'package:e_commers/Layout/themes/colors_gearUp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+//Use geomagnetic rotation sensor as fallback on Android
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,12 +26,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
           title: const Text('Compass'),
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.black,
           centerTitle: true,
+          leading: IconButton(
+            splashRadius: 20,
+            icon: const Icon(Icons.arrow_back_ios_new_rounded,
+                color: Colors.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
         ),
         body: Builder(builder: (context) {
           if (_hasPermissions) {
@@ -52,14 +62,14 @@ class _HomePageState extends State<HomePage> {
         if (snapshot.hasError) {
           return Text(
             'Error reading heading: ${snapshot.error}',
-            style: const TextStyle(color: Colors.pink),
+            style: const TextStyle(color: Colors.white),
           );
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
             child: CircularProgressIndicator(
-              color: Colors.pink,
+              color: Colors.white,
             ),
           );
         }
@@ -70,7 +80,7 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               "Device does not have sensors !",
               style: TextStyle(
-                color: Colors.pink,
+                color: Colors.white,
               ),
             ),
           );
@@ -112,15 +122,18 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           const Text(
             'Location Permission Required !',
-            style: TextStyle(color: Colors.pink),
+            style: TextStyle(color: Colors.white),
           ),
           const SizedBox(height: 16),
           SizedBox(
             width: 180,
             child: ElevatedButton(
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.pink)),
-              child: const Text('Request Permissions'),
+                  backgroundColor: MaterialStateProperty.all(Colors.white)),
+              child: const Text(
+                'Request Permissions',
+                style: TextStyle(color: Colors.black),
+              ),
               onPressed: () {
                 Permission.locationWhenInUse.request().then((ignored) {
                   _fetchPermissionStatus();
@@ -130,20 +143,6 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          const SizedBox(height: 16),
-          SizedBox(
-            width: 180,
-            child: ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.pink)),
-              child: const Text('Open App Settings'),
-              onPressed: () {
-                openAppSettings().then((opened) {
-                  //
-                });
-              },
-            ),
-          )
         ],
       ),
     );
@@ -199,19 +198,23 @@ class _HomePageState extends State<HomePage> {
         Text(
           value,
           style: const TextStyle(
-              color: Colors.pink, fontSize: 17, fontWeight: FontWeight.w700),
+              color: ColorsGearUp.greenColor,
+              fontSize: 17,
+              fontWeight: FontWeight.w700),
         ),
         Text(
           direction.toString() + '°',
           style: const TextStyle(
-              color: Colors.pink, fontSize: 17, fontWeight: FontWeight.w700),
+              color: ColorsGearUp.greenColor,
+              fontSize: 17,
+              fontWeight: FontWeight.w700),
         ),
         const SizedBox(
           height: 20,
         ),
         const Icon(
           Icons.arrow_downward,
-          color: Colors.white,
+          color: ColorsGearUp.greenColor,
           size: 50,
         )
       ],

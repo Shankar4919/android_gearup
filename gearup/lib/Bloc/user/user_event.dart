@@ -26,14 +26,13 @@ class OnUpdateInformationUserEvent extends UserEvent {
   final String street;
   final String reference;
 
-  OnUpdateInformationUserEvent(this.firstname, this.lastname, this.number, this.street, this.reference);
-} 
+  OnUpdateInformationUserEvent(
+      this.firstname, this.lastname, this.number, this.street, this.reference);
+}
 
 class OnUpdateStreetAdressEvent extends UserEvent {
   final String street;
   final String reference;
 
   OnUpdateStreetAdressEvent(this.street, this.reference);
-} 
-
-
+}

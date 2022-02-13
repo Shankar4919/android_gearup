@@ -42,7 +42,7 @@ class PaymentCardPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         itemCount: cards.length,
         itemBuilder: (_, i) {
-          final CreditCardFrave card = cards[i];
+          final CreditCard card = cards[i];
 
           return BlocBuilder<CartBloc, CartState>(
             builder: (context, state) => GestureDetector(
