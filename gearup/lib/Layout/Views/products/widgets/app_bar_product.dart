@@ -26,9 +26,9 @@ class AppBarProduct extends StatelessWidget {
           borderRadius: BorderRadius.circular(50.0),
           onTap: () => Navigator.pop(context),
           child: CircleAvatar(
-            backgroundColor: Color(0xffF3F4F6),
+            backgroundColor: Color(0xff000000),
             radius: 24,
-            child: Icon(Icons.arrow_back_ios_rounded, color: Colors.black),
+            child: Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
           ),
         ),
         Container(
@@ -37,14 +37,14 @@ class AppBarProduct extends StatelessWidget {
                 text: nameProduct,
                 overflow: TextOverflow.ellipsis,
                 fontSize: 19,
-                color: Colors.grey)),
+                color: Colors.white)),
         CircleAvatar(
-          backgroundColor: Color(0xffF5F5F5),
+          backgroundColor: Color(0xff000000),
           radius: 24,
           child: IconButton(
             icon: isFavorite == 1
                 ? Icon(Icons.favorite_rounded, color: Colors.red)
-                : Icon(Icons.favorite_border_rounded, color: Colors.black),
+                : Icon(Icons.favorite_border_rounded, color: Colors.white),
             onPressed: () => productBloc
                 .add(OnAddOrDeleteProductFavoriteEvent(uidProduct: uidProduct)),
           ),

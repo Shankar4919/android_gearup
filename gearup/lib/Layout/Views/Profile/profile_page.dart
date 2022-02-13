@@ -3,8 +3,6 @@ import 'package:e_commers/Bloc/General/general_bloc.dart';
 import 'package:e_commers/Layout/Views/Profile/add_product/add_product_page.dart';
 import 'package:e_commers/Layout/Views/Profile/card/credit_card_page.dart';
 import 'package:e_commers/Layout/Views/Profile/information_page.dart';
-import 'package:e_commers/Layout/Views/Profile/sensor/magnaticFieldCompass.dart';
-
 import 'package:e_commers/Layout/Views/Profile/shopping/shopping_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
@@ -38,7 +36,7 @@ class ProfilePage extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xffF5F5F5),
+        backgroundColor: Color(0xff000000),
         body: Stack(
           children: [
             ListProfile(),
@@ -259,8 +257,7 @@ class _ListProfileState extends State<ListProfile> {
                     topRight: Radius.circular(30.0)),
                 backgroundColor: Color(0xff2EAA9B),
                 icon: Icons.settings_applications,
-                onPressed: () =>
-                    Navigator.push(context, routeSlide(page: CompassDemo())),
+                onPressed: () {},
               ),
               DividerLine(size: size),
               CardItemProfile(

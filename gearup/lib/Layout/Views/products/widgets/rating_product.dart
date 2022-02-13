@@ -15,6 +15,7 @@ class RatingProduct extends StatelessWidget {
             width: 160,
             child: RatingBarIndicator(
               rating: 4,
+              unratedColor: Colors.white,
               itemCount: 5,
               itemSize: 30.0,
               physics: BouncingScrollPhysics(),
@@ -22,7 +23,8 @@ class RatingProduct extends StatelessWidget {
                   const Icon(Icons.star, color: Colors.amber),
             ),
           ),
-          const TextGearUp(text: '124 Reviews', fontSize: 17, color: Colors.grey)
+          const TextGearUp(
+              text: '13 Reviews', fontSize: 17, color: Colors.white)
         ],
       ),
     );

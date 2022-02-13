@@ -17,7 +17,7 @@ class HeaderHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.grey[300],
+          color: Color(0xff191919),
           borderRadius: BorderRadius.circular(15.0),
           boxShadow: [
             BoxShadow(color: Colors.black38, blurRadius: 10, spreadRadius: -5)
@@ -52,6 +52,7 @@ class HeaderHome extends StatelessWidget {
                           TextGearUp(
                             text: state.user!.users,
                             fontSize: 18,
+                            color: Colors.white,
                           )
                         ],
                       )
@@ -67,8 +68,11 @@ class HeaderHome extends StatelessWidget {
                     child: Container(
                         height: 32,
                         width: 32,
-                        child: SvgPicture.asset('assets/bolso-negro.svg',
-                            height: 25))),
+                        child: SvgPicture.asset(
+                          'assets/bolso-negro.svg',
+                          height: 25,
+                          color: Colors.white,
+                        ))),
                 Positioned(
                   left: 0,
                   top: 12,

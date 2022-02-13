@@ -15,7 +15,7 @@ void modalWarning(BuildContext context, String text){
               children: [
                 Row(
                   children: const[
-                    TextGearUp(text: 'Gear', color: Colors.amber, fontWeight: FontWeight.w500 ),
+                    TextGearUp(text: 'Gear', color: ColorsGearUp.greenColor, fontWeight: FontWeight.w500 ),
                     TextGearUp(text: 'Up', fontWeight: FontWeight.w500),
                   ],
                 ),

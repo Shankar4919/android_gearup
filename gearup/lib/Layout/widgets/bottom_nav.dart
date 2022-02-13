@@ -16,7 +16,7 @@ class BottomNavigationFrave extends StatelessWidget {
           height: 60,
           width: 320,
           decoration: BoxDecoration(
-              color: Colors.grey[300],
+              color: Color(0xff191919),
               borderRadius: BorderRadius.circular(15.0),
               boxShadow: [
                 BoxShadow(
@@ -138,7 +138,7 @@ class _ItemButtom extends StatelessWidget {
       child: Container(
           child: SvgPicture.asset(iconString,
               height: 25,
-              color: (i == index) ? ColorsGearUp.greenColor : Colors.black87)),
+              color: (i == index) ? ColorsGearUp.greenColor : Colors.white)),
     );
   }
 }

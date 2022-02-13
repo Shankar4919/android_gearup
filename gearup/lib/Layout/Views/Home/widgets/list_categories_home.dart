@@ -27,12 +27,12 @@ class ListCategoriesHome extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                     width: 150,
                     decoration: BoxDecoration(
-                        color: Color(0xff0C6CF2).withOpacity(.1),
+                        color: Color(0xffe4e6e7),
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Center(
                         child: TextGearUp(
                       text: snapshot.data![i].category,
-                      color: ColorsGearUp.greenColor,
+                      color: Colors.black,
                       overflow: TextOverflow.ellipsis,
                       fontSize: 17,
                     )),

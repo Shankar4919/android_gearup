@@ -15,7 +15,7 @@ class CartPage extends StatelessWidget {
     final productBloc = BlocProvider.of<ProductBloc>(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
           _ListProductsCard(),
@@ -26,16 +26,15 @@ class CartPage extends StatelessWidget {
               height: 133,
               width: size.width,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30.0),
-                      topRight: Radius.circular(30.0)),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey[300]!,
-                        blurRadius: 10,
-                        spreadRadius: 5)
-                  ]),
+                color: Colors.black,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30.0),
+                    topRight: Radius.circular(30.0)),
+                // boxShadow: [
+                //   BoxShadow(
+                //       color: Colors.grey[300]!, blurRadius: 10, spreadRadius: 5)
+                // ],
+              ),
               child: Column(
                 children: [
                   Padding(
@@ -47,6 +46,7 @@ class CartPage extends StatelessWidget {
                         const TextGearUp(
                             text: 'Total',
                             fontSize: 23,
+                            color: Colors.white,
                             fontWeight: FontWeight.w500),
                         BlocBuilder<ProductBloc, ProductState>(
                           builder: (context, state) => TextGearUp(

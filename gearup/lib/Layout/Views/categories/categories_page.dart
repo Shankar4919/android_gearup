@@ -15,18 +15,18 @@ class CategoriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         leading: IconButton(
           splashRadius: 20,
-          icon: Icon(Icons.arrow_back_ios_rounded, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
         elevation: 0,
         title: const TextGearUp(
             text: 'Categories',
-            color: Colors.black87,
+            color: Colors.white,
             fontWeight: FontWeight.w500,
             fontSize: 20),
         centerTitle: true,
@@ -71,7 +71,7 @@ class _ListCategories extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(15.0),
             decoration: BoxDecoration(
-                color: ColorsGearUp.greenColor.withOpacity(.2),
+                color: ColorsGearUp.greenColor,
                 borderRadius: BorderRadius.circular(10.0)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -82,6 +82,7 @@ class _ListCategories extends StatelessWidget {
                 const SizedBox(height: 10.0),
                 TextGearUp(
                     text: categories[i].category,
+                    color: Colors.white,
                     fontSize: 20,
                     overflow: TextOverflow.ellipsis)
               ],

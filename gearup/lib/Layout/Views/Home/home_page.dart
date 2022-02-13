@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xfff5f5f5),
+        backgroundColor: Color(0xff000000),
         body: Stack(
           children: [
             ListHome(),
@@ -103,6 +103,7 @@ class _ListHomeState extends State<ListHome> {
             children: [
               const TextGearUp(
                 text: 'Categories',
+                color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
@@ -111,10 +112,14 @@ class _ListHomeState extends State<ListHome> {
                     .push(routeSlide(page: CategoriesPage())),
                 child: Row(
                   children: const [
-                    TextGearUp(text: 'See All', fontSize: 17),
+                    TextGearUp(
+                      text: 'See All',
+                      fontSize: 17,
+                      color: Colors.white,
+                    ),
                     SizedBox(width: 5.0),
                     Icon(Icons.arrow_forward_ios_rounded,
-                        size: 18, color: Color(0xff006CF2))
+                        size: 18, color: Colors.white)
                   ],
                 ),
               ),
@@ -127,16 +132,21 @@ class _ListHomeState extends State<ListHome> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const TextGearUp(
-                text: 'Popular Products',
+                text: 'New Products',
+                color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
               Row(
                 children: const [
-                  TextGearUp(text: 'See All', fontSize: 17),
+                  TextGearUp(
+                    text: 'See All',
+                    fontSize: 17,
+                    color: Colors.white,
+                  ),
                   SizedBox(width: 5.0),
                   Icon(Icons.arrow_forward_ios_rounded,
-                      size: 18, color: Color(0xff006CF2))
+                      size: 18, color: Colors.white)
                 ],
               ),
             ],

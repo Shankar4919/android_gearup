@@ -43,7 +43,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Stack(
             children: [
@@ -66,6 +66,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                         TextGearUp(
                             text: widget.product.nameProduct,
                             fontSize: 25,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold)
                       ],
                     ),
@@ -84,11 +85,11 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                             RichText(
                               text: TextSpan(children: [
                                 TextSpan(
-                                    text: 'This product has a ',
+                                    text: '100% ',
                                     style: GoogleFonts.getFont('Roboto',
-                                        color: Colors.black, fontSize: 18)),
+                                        color: Colors.white, fontSize: 18)),
                                 TextSpan(
-                                    text: 'delivery guarantee',
+                                    text: 'Safe Delivery',
                                     style: GoogleFonts.getFont('Roboto',
                                         color: Colors.blue, fontSize: 18))
                               ]),
@@ -103,10 +104,10 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                       padding:
                           EdgeInsets.symmetric(vertical: 3.0, horizontal: 5.0),
                       decoration: BoxDecoration(
-                          color: Color(0xff8956FF),
+                          color: ColorsGearUp.greenColor,
                           borderRadius: BorderRadius.circular(5.0)),
                       child: const TextGearUp(
-                          text: 'Shipping normally',
+                          text: 'Within 2-3 Days',
                           fontSize: 18,
                           color: Colors.white),
                     ),
@@ -120,10 +121,11 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                           TextGearUp(
                               text: 'Available. ',
                               fontSize: 18,
-                              color: Colors.green),
+                              color: Colors.white),
                           TextGearUp(
                             text: 'In Stock',
                             fontSize: 18,
+                            color: Colors.green,
                           ),
                         ],
                       ),
@@ -135,6 +137,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                     child: const TextGearUp(
                         text: 'Description',
                         fontSize: 20,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 10.0),
@@ -143,7 +146,10 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                     child: Wrap(
                       children: [
                         TextGearUp(
-                            text: widget.product.description, fontSize: 17)
+                          text: widget.product.description,
+                          fontSize: 17,
+                          color: Colors.white,
+                        )
                       ],
                     ),
                   ),
@@ -157,7 +163,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                   ),
                   Container(
                     height: 60,
-                    color: Color(0xfff5f5f5),
+                    color: Color(0xff000000),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -185,12 +191,9 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                 child: Container(
                   height: 75,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey[200]!,
-                        blurRadius: 15,
-                        spreadRadius: 15)
-                  ]),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -199,8 +202,9 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                         height: 55,
                         width: size.width * .45,
                         child: TextGearUp(
-                            text: '\$ ${widget.product.price}',
+                            text: '\Rs. ${widget.product.price}',
                             fontSize: 22,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
                       // SizedBox(width: 15.0),

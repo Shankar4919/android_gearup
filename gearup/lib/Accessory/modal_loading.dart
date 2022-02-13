@@ -15,10 +15,10 @@ void modalLoading(BuildContext context, String text) {
             Row(
               children: [
                 TextGearUp(
-                    text: 'Frave ',
+                    text: 'Gear ',
                     color: ColorsGearUp.greenColor,
                     fontWeight: FontWeight.w500),
-                TextGearUp(text: 'Shop', fontWeight: FontWeight.w500),
+                TextGearUp(text: 'Up', fontWeight: FontWeight.w500),
               ],
             ),
             const Divider(),

@@ -39,19 +39,19 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
         }
       },
       child: Scaffold(
-          backgroundColor: Color(0xfff5f5f5),
+          backgroundColor: Color(0xff000000),
           appBar: AppBar(
             title: TextGearUp(
                 text: widget.category,
-                color: Colors.black,
+                color: Colors.white,
                 fontWeight: FontWeight.w500,
                 fontSize: 20),
             centerTitle: true,
             elevation: 0,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.black,
             leading: IconButton(
               splashRadius: 20,
-              icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black),
+              icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
               onPressed: () => Navigator.pop(context),
             ),
           ),
