@@ -162,19 +162,19 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SvgPicture.asset(
-                          'Assets/visa.svg',
+                          'assets/visa.svg',
                           height: 60,
                           color: Colors.blue,
                         ),
                         SvgPicture.asset(
-                          'Assets/mastercard.svg',
+                          'assets/mastercard.svg',
                           height: 60,
                         ),
                         SvgPicture.asset(
-                          'Assets/american express.svg',
+                          'assets/american express.svg',
                           height: 60,
                         ),
-                        SvgPicture.asset('Assets/paypal.svg', height: 55),
+                        SvgPicture.asset('assets/paypal.svg', height: 55),
                       ],
                     ),
                   )

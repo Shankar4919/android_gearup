@@ -52,7 +52,7 @@ class PaymentCreditCart extends StatelessWidget {
                                 height: 50,
                                 width: 50,
                                 child: SvgPicture.asset(
-                                    'Assets/${state.creditCardFrave!.brand}.svg')),
+                                    'assets/${state.creditCardFrave!.brand}.svg')),
                             const SizedBox(width: 15.0),
                             TextGearUp(
                               text:

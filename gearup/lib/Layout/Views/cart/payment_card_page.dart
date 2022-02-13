@@ -34,9 +34,7 @@ class PaymentCardPage extends StatelessWidget {
           TextButton(
             onPressed: () {},
             child: TextGearUp(
-                text: 'Add Card',
-                color: ColorsGearUp.greenColor,
-                fontSize: 17),
+                text: 'Add Card', color: ColorsGearUp.greenColor, fontSize: 17),
           )
         ],
       ),
@@ -67,7 +65,7 @@ class PaymentCardPage extends StatelessWidget {
                     Container(
                         height: 80,
                         width: 80,
-                        child: SvgPicture.asset('Assets/${card.brand}.svg')),
+                        child: SvgPicture.asset('assets/${card.brand}.svg')),
                     Container(
                         child: TextGearUp(
                             text: '**** **** **** ${card.cardNumberHidden}')),

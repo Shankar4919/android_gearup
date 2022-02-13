@@ -1,7 +1,7 @@
 import 'package:e_commers/Bloc/product/product_bloc.dart';
 import 'package:e_commers/Accessory/helpers.dart';
 import 'package:e_commers/Models/Response/response_products_home.dart';
-import 'package:e_commers/service/product_services.dart';
+import 'package:e_commers/Service/product_services.dart';
 import 'package:e_commers/Layout/Views/favorite/widgets/list_favorite.dart';
 import 'package:e_commers/Layout/widgets/shimmer_gearup.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';

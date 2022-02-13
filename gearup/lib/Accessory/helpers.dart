@@ -3,7 +3,7 @@ import 'package:e_commers/Bloc/category/category_bloc.dart';
 import 'package:e_commers/Bloc/product/product_bloc.dart';
 import 'package:e_commers/Bloc/user/user_bloc.dart';
 import 'package:e_commers/Models/Response/response_categories_home.dart';
-import 'package:e_commers/service/product_services.dart';
+import 'package:e_commers/Service/product_services.dart';
 import 'package:e_commers/Service/urls.dart';
 import 'package:e_commers/Layout/themes/colors_gearUp.dart';
 import 'package:e_commers/Layout/widgets/shimmer_gearup.dart';
@@ -12,8 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-
 
 part 'animation_route.dart';
 part 'modal_success.dart';

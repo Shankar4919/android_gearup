@@ -10,7 +10,7 @@
         </intent>
     </queries>
    <application
-        android:label="Frave Shop"
+        android:label="GearUp: Football Store"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity

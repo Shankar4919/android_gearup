@@ -1,4 +1,4 @@
-import 'package:e_commers/Bloc/auth/auth_bloc.dart';
+import 'package:e_commers/Bloc/Auth/auth_bloc.dart';
 import 'package:e_commers/Bloc/user/user_bloc.dart';
 import 'package:e_commers/Accessory/helpers.dart';
 import 'package:e_commers/Layout/Views/Home/home_page.dart';
