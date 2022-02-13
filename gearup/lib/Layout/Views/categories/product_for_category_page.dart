@@ -61,11 +61,11 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
             builder: (context, snapshot) => !snapshot.hasData
                 ? Column(
                     children: const [
-                      ShimmerFrave(),
+                      ShimmerGearUp(),
                       SizedBox(height: 10.0),
-                      ShimmerFrave(),
+                      ShimmerGearUp(),
                       SizedBox(height: 10.0),
-                      ShimmerFrave(),
+                      ShimmerGearUp(),
                     ],
                   )
                 : Padding(

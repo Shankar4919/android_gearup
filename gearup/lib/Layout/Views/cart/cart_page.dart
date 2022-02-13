@@ -2,6 +2,7 @@ import 'package:e_commers/Accessory/helpers.dart';
 import 'package:e_commers/Layout/Views/cart/checkout_page.dart';
 import 'package:e_commers/Layout/Views/cart/widgets/details_product_cart.dart';
 import 'package:e_commers/Layout/Views/cart/widgets/without_product_cart.dart';
+import 'package:e_commers/Layout/themes/colors_gearUp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';
@@ -50,7 +51,7 @@ class CartPage extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                         BlocBuilder<ProductBloc, ProductState>(
                           builder: (context, state) => TextGearUp(
-                              text: '\$ ${state.total.toStringAsFixed(2)}',
+                              text: '\Rs. ${state.total.toStringAsFixed(2)}',
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                               color: Color(0xff0C6CF2)),
@@ -59,7 +60,7 @@ class CartPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 18.0),
-                  BtnFrave(
+                  BtnGearUp(
                     text: 'Checkout',
                     fontSize: 22,
                     width: size.width,

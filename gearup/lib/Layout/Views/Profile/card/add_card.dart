@@ -6,9 +6,9 @@ class AddCreditCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           title: const TextGearUp(
               text: 'Add Cards',
               color: ColorsGearUp.greenColor,
@@ -22,7 +22,9 @@ class AddCreditCardPage extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
           )),
       body: Center(
-        child: const Text('GearUp: Football Store'),
+        child: const Text(
+          'GearUp: Football Store',
+        ),
       ),
     );
   }

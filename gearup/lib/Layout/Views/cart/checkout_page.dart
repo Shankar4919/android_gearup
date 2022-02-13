@@ -3,8 +3,8 @@ import 'package:e_commers/Accessory/helpers.dart';
 import 'package:e_commers/Layout/Views/Home/home_page.dart';
 import 'package:e_commers/Layout/Views/cart/widgets/order_details.dart';
 import 'package:e_commers/Layout/Views/cart/widgets/payment_credit_cart.dart';
-import 'package:e_commers/Layout/Views/cart/widgets/promo_code.dart';
 import 'package:e_commers/Layout/Views/cart/widgets/street_address.dart';
+import 'package:e_commers/Layout/themes/colors_gearUp.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,19 +35,19 @@ class CheckOutPage extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xfff3f4f8),
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           title: const TextGearUp(
               text: 'Checkout',
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 21,
               fontWeight: FontWeight.bold),
           centerTitle: true,
           elevation: 0,
           leading: IconButton(
             splashRadius: 20,
-            icon: Icon(Icons.arrow_back_ios_rounded, color: Colors.black),
+            icon: Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
             onPressed: () => Navigator.pop(context),
           ),
         ),
@@ -59,37 +59,43 @@ class CheckOutPage extends StatelessWidget {
               margin: const EdgeInsets.only(top: 10.0),
               padding: const EdgeInsets.all(15.0),
               height: 100,
-              color: Colors.white,
+              color: Color(0xff2b2c2c),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   TextGearUp(
-                      text: 'Delivery Details',
+                      text: 'Delivery Status',
                       fontSize: 19,
+                      color: Colors.white,
                       fontWeight: FontWeight.w600),
                   Divider(),
-                  TextGearUp(text: 'Stander Delivery (3-4 days)', fontSize: 18),
+                  TextGearUp(
+                    text: 'Delivery Within 2-3 Days',
+                    fontSize: 18,
+                    color: ColorsGearUp.greenColor,
+                  ),
                 ],
               ),
             ),
-            PromoCode(size: size.width),
             const OrderDetails(),
             Container(
               margin: const EdgeInsets.only(top: 10),
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
               height: 60,
-              color: Colors.white,
+              color: Color(0xff2b2c2c),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const TextGearUp(
                     text: 'Total',
                     fontSize: 19,
+                    color: Colors.white,
                   ),
                   TextGearUp(
-                    text: '\$ ${productBloc.state.total}',
+                    text: '\Rs. ${productBloc.state.total}',
                     fontSize: 19,
+                    color: Colors.blue,
                   )
                 ],
               ),
@@ -99,7 +105,7 @@ class CheckOutPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
               alignment: Alignment.bottomCenter,
-              child: BtnFrave(
+              child: BtnGearUp(
                 text: 'Pay',
                 height: 55,
                 fontSize: 22,

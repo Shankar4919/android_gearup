@@ -57,19 +57,19 @@ class _DeliveryPageState extends State<DeliveryPage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           title: const TextGearUp(
               text: 'Street Address',
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 21,
               fontWeight: FontWeight.bold),
           centerTitle: true,
           elevation: 0,
           leading: IconButton(
             splashRadius: 20,
-            icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.black),
+            icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
             onPressed: () => Navigator.pop(context),
           ),
         ),
@@ -97,6 +97,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                                   TextGearUp(
                                     text: '${state.user!.address}',
                                     fontSize: 18,
+                                    color: Colors.white,
                                   ),
                                   Icon(Icons.radio_button_checked_rounded,
                                       size: 31, color: Colors.blue)
@@ -127,7 +128,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                 prefixIcon: const Icon(Icons.location_searching_rounded),
               ),
               const SizedBox(height: 20.0),
-              BtnFrave(
+              BtnGearUp(
                   text: 'Save Address',
                   height: 55,
                   width: size.width,

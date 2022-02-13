@@ -69,15 +69,15 @@ class _SignUpPageState extends State<SignUpPage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           elevation: 0,
           leading: IconButton(
             splashRadius: 20,
             icon: const Icon(
               Icons.close_rounded,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () => Navigator.pop(context),
           ),
@@ -101,13 +101,15 @@ class _SignUpPageState extends State<SignUpPage> {
               TextGearUp(
                   text: 'Welcome to GearUp ',
                   fontSize: 24,
+                  color: Colors.white,
                   fontWeight: FontWeight.w600),
               SizedBox(height: 5.0),
-              TextGearUp(text: 'Create Account', fontSize: 17),
+              TextGearUp(
+                  text: 'Create Account', fontSize: 17, color: Colors.white),
               SizedBox(height: 20.0),
               TextFormGearUp(
                 hintText: 'Username',
-                prefixIcon: Icon(Icons.person),
+                prefixIcon: Icon(Icons.person, color: Colors.black),
                 controller: userController,
                 validator: RequiredValidator(errorText: 'Username is required'),
               ),
@@ -115,13 +117,13 @@ class _SignUpPageState extends State<SignUpPage> {
               TextFormGearUp(
                   hintText: 'Email Address',
                   keyboardType: TextInputType.emailAddress,
-                  prefixIcon: Icon(Icons.email_outlined),
+                  prefixIcon: Icon(Icons.email_outlined, color: Colors.black),
                   controller: emailController,
                   validator: validatedEmail),
               SizedBox(height: 15.0),
               TextFormGearUp(
                 hintText: 'Password',
-                prefixIcon: Icon(Icons.lock),
+                prefixIcon: Icon(Icons.lock, color: Colors.black),
                 isPassword: true,
                 controller: passowrdController,
                 validator: passwordValidator,
@@ -130,7 +132,7 @@ class _SignUpPageState extends State<SignUpPage> {
               TextFormGearUp(
                   hintText: 'Confirm Password',
                   controller: passController,
-                  prefixIcon: Icon(Icons.lock),
+                  prefixIcon: Icon(Icons.lock, color: Colors.black),
                   isPassword: true,
                   validator: (val) =>
                       MatchValidator(errorText: 'Password do not macth ')
@@ -142,16 +144,18 @@ class _SignUpPageState extends State<SignUpPage> {
                   TextGearUp(
                     text: ' I Agree to GearUp ',
                     fontSize: 15,
+                    color: Colors.grey,
                   ),
                   TextGearUp(
-                      text: ' Terms of Use',
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xff16b13a)),
+                    text: ' Terms of Use',
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ],
               ),
               SizedBox(height: 25.0),
-              BtnFrave(
+              BtnGearUp(
                 text: 'Sign Up',
                 width: size.width,
                 fontSize: 20,

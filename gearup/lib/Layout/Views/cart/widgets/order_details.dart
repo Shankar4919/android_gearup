@@ -14,7 +14,7 @@ class OrderDetails extends StatelessWidget {
       margin: const EdgeInsets.only(top: 10.0),
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
       height: 130,
-      color: Colors.white,
+      color: Color(0xff2b2c2c),
       child: Column(
         children: [
           Row(
@@ -23,10 +23,12 @@ class OrderDetails extends StatelessWidget {
               const TextGearUp(
                 text: 'Order',
                 fontSize: 19,
+                color: Colors.white,
               ),
               TextGearUp(
-                text: '\$ ${productBloc.state.total}',
+                text: '\Rs. ${productBloc.state.total}',
                 fontSize: 19,
+                color: Colors.white,
               )
             ],
           ),
@@ -37,10 +39,12 @@ class OrderDetails extends StatelessWidget {
               const TextGearUp(
                 text: 'Delivery',
                 fontSize: 19,
+                color: Colors.white,
               ),
               TextGearUp(
-                text: '\$ ${productBloc.state.delivery}',
+                text: '\Rs. ${productBloc.state.delivery}',
                 fontSize: 19,
+                color: Colors.white,
               )
             ],
           ),
@@ -51,10 +55,12 @@ class OrderDetails extends StatelessWidget {
               const TextGearUp(
                 text: 'Insurance',
                 fontSize: 19,
+                color: Colors.white,
               ),
               TextGearUp(
-                text: '\$ ${productBloc.state.insurance}',
+                text: '\Rs. ${productBloc.state.insurance}',
                 fontSize: 19,
+                color: Colors.white,
               )
             ],
           ),

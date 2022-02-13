@@ -12,12 +12,12 @@ class ShoppingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff5f5f5),
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         title: const TextGearUp(
             text: 'Purchased',
-            color: Colors.black87,
+            color: Colors.white,
             fontWeight: FontWeight.w500,
             fontSize: 20),
         centerTitle: true,
@@ -25,7 +25,7 @@ class ShoppingPage extends StatelessWidget {
         leading: IconButton(
           splashRadius: 20,
           icon:
-              const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black),
+              const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -33,7 +33,7 @@ class ShoppingPage extends StatelessWidget {
         future: productServices.getPurchasedProducts(),
         builder: (_, snapshot) {
           return (!snapshot.hasData)
-              ? const ShimmerFrave()
+              ? const ShimmerGearUp()
               : _DetailsProductsBuy(ordersBuy: snapshot.data!);
         },
       ),
@@ -64,7 +64,8 @@ class _DetailsProductsBuy extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
           margin: EdgeInsets.only(bottom: 15.0),
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(15.0)),
+              color: Color(0xff2b2c2c),
+              borderRadius: BorderRadius.circular(15.0)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -78,11 +79,12 @@ class _DetailsProductsBuy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const TextGearUp(
-                      text: 'Date ', fontSize: 18, color: Colors.grey),
+                      text: 'Date ', fontSize: 18, color: Colors.white),
                   TextGearUp(
-                      text:
-                          timeago.format(ordersBuy[i].createdAt, locale: 'es'),
-                      fontSize: 18),
+                    text: timeago.format(ordersBuy[i].createdAt, locale: 'en'),
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
                 ],
               ),
               const SizedBox(height: 10.0),
@@ -90,11 +92,12 @@ class _DetailsProductsBuy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const TextGearUp(
-                      text: 'Amount ', fontSize: 18, color: Colors.grey),
+                      text: 'Amount ', fontSize: 18, color: Colors.white),
                   TextGearUp(
-                      text: '\$ ${ordersBuy[i].amount}',
+                      text: '\Rs. ${ordersBuy[i].amount}',
                       fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
                 ],
               ),
             ],

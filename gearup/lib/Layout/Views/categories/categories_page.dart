@@ -37,11 +37,11 @@ class CategoriesPage extends StatelessWidget {
           return !snapshot.hasData
               ? Column(
                   children: const [
-                    ShimmerFrave(),
+                    ShimmerGearUp(),
                     SizedBox(height: 10.0),
-                    ShimmerFrave(),
+                    ShimmerGearUp(),
                     SizedBox(height: 10.0),
-                    ShimmerFrave(),
+                    ShimmerGearUp(),
                   ],
                 )
               : _ListCategories(categories: snapshot.data!);

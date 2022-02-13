@@ -56,7 +56,7 @@ class ProductFavorite extends StatelessWidget {
                     overflow: TextOverflow.ellipsis),
                 const SizedBox(height: 10.0),
                 TextGearUp(
-                    text: '\$ ${product.price}',
+                    text: '\Rs. ${product.price}',
                     fontSize: 21,
                     fontWeight: FontWeight.bold),
               ],

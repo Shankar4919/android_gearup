@@ -55,6 +55,6 @@ class WithoutProductsCart extends StatelessWidget {
                       ],
                     ))
                 : const SizedBox()
-            : const ShimmerFrave());
+            : const ShimmerGearUp());
   }
 }

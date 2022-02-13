@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                   width: size.width,
                   child: Align(
                       alignment: Alignment.center,
-                      child: BottomNavigationFrave(index: 1))),
+                      child: BottomNavigationGearUp(index: 1))),
             ),
           ],
         ),

@@ -70,12 +70,13 @@ class _AddProductPageState extends State<AddProductPage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           title: const TextGearUp(
               text: 'Add New Product',
               fontSize: 20,
+              color: Colors.white,
               fontWeight: FontWeight.bold),
           elevation: 0,
           centerTitle: true,
@@ -83,7 +84,7 @@ class _AddProductPageState extends State<AddProductPage> {
             splashRadius: 20,
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios_new_rounded,
-                color: Colors.black87),
+                color: Colors.white),
           ),
           actions: [
             TextButton(
@@ -154,14 +155,14 @@ class _AddProductPageState extends State<AddProductPage> {
               const SizedBox(height: 20.0),
               TextFormGearUp(
                 controller: _nameProductController,
-                prefixIcon: const Icon(Icons.add),
+                prefixIcon: const Icon(Icons.add, color: Colors.black),
                 hintText: 'Name Product',
                 validator: RequiredValidator(errorText: 'name is required'),
               ),
               const SizedBox(height: 20.0),
               TextFormGearUp(
                 controller: _descriptionProductController,
-                prefixIcon: const Icon(Icons.add),
+                prefixIcon: const Icon(Icons.add, color: Colors.black),
                 hintText: 'Description Product',
                 validator:
                     RequiredValidator(errorText: 'Description is required'),
@@ -169,7 +170,7 @@ class _AddProductPageState extends State<AddProductPage> {
               const SizedBox(height: 20.0),
               TextFormGearUp(
                 controller: _stockController,
-                prefixIcon: const Icon(Icons.add),
+                prefixIcon: const Icon(Icons.add, color: Colors.black),
                 hintText: 'Stock',
                 keyboardType: TextInputType.number,
                 validator: RequiredValidator(errorText: 'Stock is required'),
@@ -177,7 +178,7 @@ class _AddProductPageState extends State<AddProductPage> {
               const SizedBox(height: 20.0),
               TextFormGearUp(
                 controller: _priceController,
-                prefixIcon: const Icon(Icons.add),
+                prefixIcon: const Icon(Icons.add, color: Colors.black),
                 hintText: 'Price',
                 keyboardType: TextInputType.number,
                 validator: RequiredValidator(errorText: 'Price is required'),

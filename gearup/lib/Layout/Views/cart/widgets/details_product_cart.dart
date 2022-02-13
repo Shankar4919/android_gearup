@@ -62,7 +62,7 @@ class DetailsProductsCart extends StatelessWidget {
                                   children: [
                                     const SizedBox(height: 10.0),
                                     TextGearUp(
-                                        text: '\$ ${state.products![i].price}',
+                                        text: '\Rs. ${state.products![i].price}',
                                         fontSize: 20,
                                         fontWeight: FontWeight.w600),
                                     const SizedBox(height: 20.0),
@@ -146,7 +146,7 @@ class DetailsProductsCart extends StatelessWidget {
                       );
                     },
                   )
-                : const ShimmerFrave()),
+                : const ShimmerGearUp()),
       ),
     );
   }

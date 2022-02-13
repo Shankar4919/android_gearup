@@ -17,7 +17,7 @@ class ListCategoriesHome extends StatelessWidget {
         future: productServices.listCategoriesHome(),
         builder: (context, snapshot) {
           return !snapshot.hasData
-              ? const ShimmerFrave()
+              ? const ShimmerGearUp()
               : ListView.builder(
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,

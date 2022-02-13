@@ -69,7 +69,7 @@ modalCategoies(BuildContext context, Size size) {
                           ),
                         ),
                     )
-                  : const ShimmerFrave()
+                  : const ShimmerGearUp()
               )
             )
           ],

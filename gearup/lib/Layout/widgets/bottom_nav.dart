@@ -1,9 +1,9 @@
 part of 'widgets.dart';
 
-class BottomNavigationFrave extends StatelessWidget {
+class BottomNavigationGearUp extends StatelessWidget {
   final int index;
 
-  BottomNavigationFrave({required this.index});
+  BottomNavigationGearUp({required this.index});
 
   @override
   Widget build(BuildContext context) {

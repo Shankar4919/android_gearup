@@ -56,11 +56,12 @@ class _SignInPageState extends State<SignInPage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: AppBar(
+          backgroundColor: Colors.black,
           leading: IconButton(
             splashRadius: 20,
-            icon: Icon(Icons.close_rounded, size: 25, color: Colors.black),
+            icon: Icon(Icons.close_rounded, size: 25, color: Colors.white),
             onPressed: () => Navigator.pop(context),
           ),
           actions: [
@@ -75,7 +76,6 @@ class _SignInPageState extends State<SignInPage> {
             )
           ],
           elevation: 0,
-          backgroundColor: Colors.white,
         ),
         body: SafeArea(
           child: Form(
@@ -91,25 +91,30 @@ class _SignInPageState extends State<SignInPage> {
                     fontWeight: FontWeight.bold,
                     color: Color(0xff16b13a)),
                 const SizedBox(height: 5),
-                const TextGearUp(text: 'Sign In to your account', fontSize: 18),
+                const TextGearUp(
+                  text: 'Sign In to your account',
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
                 const SizedBox(height: 35),
                 TextFormGearUp(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   validator: validatedEmail,
                   hintText: 'Enter your Email',
-                  prefixIcon: Icon(Icons.alternate_email_rounded),
+                  prefixIcon:
+                      Icon(Icons.alternate_email_rounded, color: Colors.black),
                 ),
                 const SizedBox(height: 20),
                 TextFormGearUp(
                   controller: _passowrdController,
                   isPassword: isChangeSuffixIcon,
                   hintText: 'Enter your password',
-                  prefixIcon: Icon(Icons.lock),
+                  prefixIcon: Icon(Icons.lock, color: Colors.black),
                   validator: passwordValidator,
                 ),
                 const SizedBox(height: 40),
-                BtnFrave(
+                BtnGearUp(
                   text: 'Sign In',
                   width: size.width,
                   fontSize: 20,
@@ -119,17 +124,6 @@ class _SignInPageState extends State<SignInPage> {
                           _passowrdController.text.trim()));
                     }
                   },
-                ),
-                const SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.center,
-                  child: TextButton(
-                      child: TextGearUp(
-                          text: 'Forgot password?',
-                          color: Colors.black,
-                          fontSize: 17),
-                      onPressed: () => Navigator.push(
-                          context, routeSlide(page: LoadingPage()))),
                 ),
               ],
             ),

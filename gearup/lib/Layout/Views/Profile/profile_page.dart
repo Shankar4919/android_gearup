@@ -4,6 +4,7 @@ import 'package:e_commers/Layout/Views/Profile/add_product/add_product_page.dart
 import 'package:e_commers/Layout/Views/Profile/card/credit_card_page.dart';
 import 'package:e_commers/Layout/Views/Profile/information_page.dart';
 import 'package:e_commers/Layout/Views/Profile/shopping/shopping_page.dart';
+import 'package:e_commers/Layout/Views/favorite/favorite_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +37,7 @@ class ProfilePage extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xff000000),
+        backgroundColor: Colors.black,
         body: Stack(
           children: [
             ListProfile(),
@@ -44,7 +45,7 @@ class ProfilePage extends StatelessWidget {
               bottom: 20,
               child: Container(
                   width: size.width,
-                  child: Align(child: BottomNavigationFrave(index: 5))),
+                  child: Align(child: BottomNavigationGearUp(index: 5))),
             ),
           ],
         ),
@@ -193,20 +194,19 @@ class _ListProfileState extends State<ListProfile> {
                       ),
                     ],
                   )
-                : const ShimmerFrave()),
+                : const ShimmerGearUp()),
         const SizedBox(height: 25.0),
         Container(
           height: 182,
           width: size.width,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(30.0)),
+          color: Colors.black,
           child: Column(
             children: [
               CardItemProfile(
                 text: 'Personal Information',
                 borderRadius: BorderRadius.circular(50.0),
                 icon: Icons.person_outline_rounded,
-                backgroundColor: Color(0xff7882ff),
+                backgroundColor: Colors.black,
                 onPressed: () => Navigator.push(
                     context, routeSlide(page: InformationPage())),
               ),
@@ -215,7 +215,7 @@ class _ListProfileState extends State<ListProfile> {
                 text: 'Credit Card',
                 borderRadius: BorderRadius.circular(50.0),
                 icon: Icons.credit_card_rounded,
-                backgroundColor: Color(0xffFFCD3A),
+                backgroundColor: Color(0xff2b2c2c),
                 onPressed: () =>
                     Navigator.push(context, routeSlide(page: CreditCardPage())),
               ),
@@ -226,7 +226,7 @@ class _ListProfileState extends State<ListProfile> {
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30.0)),
                 icon: Icons.add,
-                backgroundColor: Color(0xff02406F),
+                backgroundColor: Color(0xff2b2c2c),
                 onPressed: () =>
                     Navigator.push(context, routeSlide(page: AddProductPage())),
               ),
@@ -246,8 +246,6 @@ class _ListProfileState extends State<ListProfile> {
         Container(
           height: 243,
           width: size.width,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(30.0)),
           child: Column(
             children: [
               CardItemProfile(
@@ -255,7 +253,7 @@ class _ListProfileState extends State<ListProfile> {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30.0)),
-                backgroundColor: Color(0xff2EAA9B),
+                backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.settings_applications,
                 onPressed: () {},
               ),
@@ -263,22 +261,23 @@ class _ListProfileState extends State<ListProfile> {
               CardItemProfile(
                 text: 'Notifications',
                 borderRadius: BorderRadius.zero,
-                backgroundColor: Color(0xffE87092),
+                backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.notifications_none_rounded,
                 onPressed: () {},
               ),
               DividerLine(size: size),
               CardItemProfile(
                 text: 'Favorites',
-                backgroundColor: Color(0xfff28072),
+                backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.favorite_border_rounded,
                 borderRadius: BorderRadius.zero,
-                onPressed: () {},
+                onPressed: () => Navigator.pushAndRemoveUntil(
+                    context, routeSlide(page: FavoritePage()), (_) => false),
               ),
               DividerLine(size: size),
               CardItemProfile(
                 text: 'My Shopping',
-                backgroundColor: Color(0xff0716A5),
+                backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.shopping_bag_outlined,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30),
@@ -302,8 +301,6 @@ class _ListProfileState extends State<ListProfile> {
         Container(
           height: 243,
           width: size.width,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(30.0)),
           child: Column(
             children: [
               CardItemProfile(
@@ -311,7 +308,7 @@ class _ListProfileState extends State<ListProfile> {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30.0)),
-                backgroundColor: Color(0xff6dbd63),
+                backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.policy_rounded,
                 onPressed: () {},
               ),
@@ -319,7 +316,7 @@ class _ListProfileState extends State<ListProfile> {
               CardItemProfile(
                 text: 'Security',
                 borderRadius: BorderRadius.zero,
-                backgroundColor: Color(0xff1F252C),
+                backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.lock_outline_rounded,
                 onPressed: () {},
               ),
@@ -327,14 +324,14 @@ class _ListProfileState extends State<ListProfile> {
               CardItemProfile(
                 text: 'Term & Conditions',
                 borderRadius: BorderRadius.zero,
-                backgroundColor: Color(0xff458bff),
+                backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.description_outlined,
                 onPressed: () {},
               ),
               DividerLine(size: size),
               CardItemProfile(
                 text: 'Help',
-                backgroundColor: Color(0xff4772e6),
+                backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.help_outline,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30),
@@ -346,13 +343,11 @@ class _ListProfileState extends State<ListProfile> {
         ),
         SizedBox(height: 25.0),
         CardItemProfile(
-          text: 'Sign Out',
-          borderRadius: BorderRadius.circular(50.0),
-          icon: Icons.power_settings_new_sharp,
-          backgroundColor: Colors.red,
-          onPressed: () =>
-              Navigator.push(context, routeSlide(page: SignInPage())),
-        ),
+            text: 'Sign Out',
+            borderRadius: BorderRadius.circular(50.0),
+            icon: Icons.power_settings_new_sharp,
+            backgroundColor: Color(0xff2b2c2c),
+            onPressed: () {}),
       ],
     );
   }

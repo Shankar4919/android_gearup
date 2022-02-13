@@ -10,9 +10,9 @@ class CreditCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         title: const TextGearUp(
             text: 'My Cards',
             color: ColorsGearUp.greenColor,
@@ -71,12 +71,13 @@ class CreditCardPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-            const TextGearUp(text: 'Last movements', fontSize: 19),
+            const TextGearUp(
+                text: 'Last movements', fontSize: 19, color: Colors.white),
             const SizedBox(height: 15),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                    color: Color(0xffF5F5F5),
+                    color: Color(0xff747475),
                     borderRadius: BorderRadius.circular(20.0)),
               ),
             )

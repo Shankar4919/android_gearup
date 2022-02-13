@@ -23,8 +23,9 @@ class CardItemProfile extends StatelessWidget {
       height: 60,
       width: size.width,
       decoration:
-          BoxDecoration(color: Colors.white, borderRadius: borderRadius),
+          BoxDecoration(color: Colors.black, borderRadius: borderRadius),
       child: Card(
+        color: Colors.black,
         shape: RoundedRectangleBorder(borderRadius: borderRadius),
         elevation: 0.0,
         margin: EdgeInsets.all(0.0),
@@ -41,7 +42,7 @@ class CardItemProfile extends StatelessWidget {
                       height: 35,
                       width: 35,
                       decoration: BoxDecoration(
-                          color: backgroundColor,
+                          color: Colors.black,
                           borderRadius: BorderRadius.circular(12.0)),
                       child: Icon(
                         icon,
@@ -52,6 +53,7 @@ class CardItemProfile extends StatelessWidget {
                     TextGearUp(
                       text: text,
                       fontSize: 18,
+                      color: Colors.white,
                     ),
                   ],
                 ),

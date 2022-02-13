@@ -15,19 +15,19 @@ class PaymentCardPage extends StatelessWidget {
     final cartBloc = BlocProvider.of<CartBloc>(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         title: const TextGearUp(
             text: 'Payment',
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 21,
             fontWeight: FontWeight.bold),
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
           splashRadius: 20,
-          icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.black),
+          icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
@@ -55,28 +55,31 @@ class PaymentCardPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15.0),
                     border: Border.all(
                         color: state.creditCardFrave == null
-                            ? Colors.black
+                            ? Colors.blue
                             : state.creditCardFrave!.cvv == card.cvv
-                                ? Colors.blue
-                                : Colors.black)),
+                                ? ColorsGearUp.greenColor
+                                : Colors.blue)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                         height: 80,
                         width: 80,
+                        color: Colors.white,
                         child: SvgPicture.asset('assets/${card.brand}.svg')),
                     Container(
                         child: TextGearUp(
+                            color: Colors.white,
                             text: '**** **** **** ${card.cardNumberHidden}')),
                     Container(
                         child: state.creditCardFrave == null
-                            ? Icon(Icons.radio_button_off_rounded, size: 31)
+                            ? Icon(Icons.radio_button_off_rounded,
+                                size: 31, color: Colors.white)
                             : state.creditCardFrave!.cvv == card.cvv
                                 ? Icon(
                                     Icons.radio_button_checked_rounded,
                                     size: 31,
-                                    color: Colors.blue,
+                                    color: ColorsGearUp.greenColor,
                                   )
                                 : Icon(Icons.radio_button_off_rounded,
                                     size: 31))

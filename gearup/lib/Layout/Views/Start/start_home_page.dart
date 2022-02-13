@@ -46,15 +46,15 @@ class StartHomePage extends StatelessWidget {
                   child: ListView(
                     physics: BouncingScrollPhysics(),
                     children: [
-                      BtnFrave(
-                          text: 'Sign Up with Email ID',
+                      BtnGearUp(
+                          text: 'Sign In',
                           colorText: Colors.white,
                           backgroundColor: Color(0xff000000),
                           onPressed: () =>
-                              Navigator.of(context).pushNamed('signUpPage'),
+                              Navigator.of(context).pushNamed('signInPage'),
                           width: size.width),
                       SizedBox(height: 15.0),
-                      BtnFrave(
+                      BtnGearUp(
                           text: 'Create New Account',
                           colorText: Colors.black87,
                           fontSize: 19,
@@ -63,22 +63,6 @@ class StartHomePage extends StatelessWidget {
                               Navigator.of(context).pushNamed('signUpPage'),
                           width: size.width),
                       SizedBox(height: 10.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TextGearUp(
-                              text: 'Already have an account?', fontSize: 17),
-                          TextButton(
-                            child: TextGearUp(
-                                text: 'Sign In',
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                            onPressed: () =>
-                                Navigator.of(context).pushNamed('signInPage'),
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),

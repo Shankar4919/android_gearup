@@ -31,15 +31,15 @@ class _FavoritePageState extends State<FavoritePage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xffF5F5F5),
+        backgroundColor: Colors.black,
         appBar: AppBar(
           title: const TextGearUp(
               text: 'Favorites',
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.w500),
           centerTitle: true,
-          backgroundColor: Color(0xfff2f2f2),
+          backgroundColor: Color(0xff00000),
           elevation: 0,
           automaticallyImplyLeading: false,
         ),
@@ -50,11 +50,11 @@ class _FavoritePageState extends State<FavoritePage> {
                 builder: (context, snapshot) => !snapshot.hasData
                     ? Column(
                         children: const [
-                          ShimmerFrave(),
+                          ShimmerGearUp(),
                           SizedBox(height: 10.0),
-                          ShimmerFrave(),
+                          ShimmerGearUp(),
                           SizedBox(height: 10.0),
-                          ShimmerFrave(),
+                          ShimmerGearUp(),
                         ],
                       )
                     : ListFavoriteProduct(products: snapshot.data!)),
@@ -62,7 +62,7 @@ class _FavoritePageState extends State<FavoritePage> {
               bottom: 20,
               child: Container(
                   width: size.width,
-                  child: Align(child: BottomNavigationFrave(index: 2))),
+                  child: Align(child: BottomNavigationGearUp(index: 2))),
             ),
           ],
         ),

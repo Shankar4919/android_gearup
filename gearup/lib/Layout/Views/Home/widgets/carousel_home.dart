@@ -17,7 +17,7 @@ class CardCarousel extends StatelessWidget {
           future: productServices.listProductsHomeCarousel(),
           builder: (context, snapshot) {
             return !snapshot.hasData
-                ? const ShimmerFrave()
+                ? const ShimmerGearUp()
                 : CarouselSlider.builder(
                     itemCount: snapshot.data!.length,
                     options: CarouselOptions(

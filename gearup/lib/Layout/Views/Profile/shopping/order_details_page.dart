@@ -13,11 +13,28 @@ class OrderDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: const TextGearUp(
+            text: 'Order Detail',
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            fontSize: 20),
+        centerTitle: true,
+        elevation: 0,
+        leading: IconButton(
+          splashRadius: 20,
+          icon:
+              const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: SafeArea(
         child: FutureBuilder<List<OrderDetail>>(
             future: productServices.getOrderDetails(uidOrder),
             builder: (context, snapshot) => !snapshot.hasData
-                ? const ShimmerFrave()
+                ? const ShimmerGearUp()
                 : _ListOrderDetails(orderDetails: snapshot.data!)),
       ),
     );
@@ -35,15 +52,6 @@ class _ListOrderDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-            margin: const EdgeInsets.only(
-              left: 5.0,
-              top: 5.0,
-            ),
-            child: IconButton(
-                splashRadius: 20,
-                onPressed: () => Navigator.pop(context),
-                icon: Icon(Icons.arrow_back_ios_new_rounded))),
         Expanded(
           child: ListView.builder(
             padding:
@@ -80,7 +88,7 @@ class _ListOrderDetails extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextGearUp(
-                              text: 'Price: \$ ${orderDetails[i].price}',
+                              text: 'Price: \Rs. ${orderDetails[i].price}',
                               fontSize: 20,
                             ),
                             const SizedBox(height: 5.0),

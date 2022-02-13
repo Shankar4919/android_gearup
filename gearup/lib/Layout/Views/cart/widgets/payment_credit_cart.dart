@@ -15,7 +15,7 @@ class PaymentCreditCart extends StatelessWidget {
         margin: const EdgeInsets.only(top: 10.0),
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         height: 113,
-        color: Colors.white,
+        color: Color(0xff2b2c2c),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,7 +23,11 @@ class PaymentCreditCart extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const TextGearUp(
-                    text: 'Payment', fontSize: 19, fontWeight: FontWeight.w600),
+                  text: 'Payment',
+                  fontSize: 19,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
                 GestureDetector(
                     child: BlocBuilder<CartBloc, CartState>(
                         builder: (context, state) => (!state.cardActive!)
@@ -42,7 +46,10 @@ class PaymentCreditCart extends StatelessWidget {
             BlocBuilder<CartBloc, CartState>(
                 builder: (_, state) => (!state.cardActive!)
                     ? const TextGearUp(
-                        text: 'Without Credit Card', fontSize: 18)
+                        text: 'Without Credit Card',
+                        fontSize: 18,
+                        color: Colors.white,
+                      )
                     : Container(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0),
                         color: Color(0xfff5f5f5),
