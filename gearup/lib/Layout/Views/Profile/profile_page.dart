@@ -3,7 +3,8 @@ import 'package:e_commers/Bloc/General/general_bloc.dart';
 import 'package:e_commers/Layout/Views/Profile/add_product/add_product_page.dart';
 import 'package:e_commers/Layout/Views/Profile/card/credit_card_page.dart';
 import 'package:e_commers/Layout/Views/Profile/information_page.dart';
-import 'package:e_commers/Layout/Views/Profile/sensor/compass.dart';
+import 'package:e_commers/Layout/Views/Profile/sensor/magnaticFieldCompass.dart';
+
 import 'package:e_commers/Layout/Views/Profile/shopping/shopping_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
@@ -259,7 +260,7 @@ class _ListProfileState extends State<ListProfile> {
                 backgroundColor: Color(0xff2EAA9B),
                 icon: Icons.settings_applications,
                 onPressed: () =>
-                    Navigator.push(context, routeSlide(page: dirSensor())),
+                    Navigator.push(context, routeSlide(page: CompassDemo())),
               ),
               DividerLine(size: size),
               CardItemProfile(

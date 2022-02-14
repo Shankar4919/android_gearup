@@ -27,9 +27,7 @@ dependencies:
   google_fonts: ^2.1.0
   http: ^0.13.4
   image_picker: ^0.8.4+4
-  location: ^4.3.0
   permission_handler: ^8.3.0
-  sensors: ^2.0.3
   shimmer: ^2.0.0
   stripe_payment: ^1.1.1
   timeago: ^3.1.0
