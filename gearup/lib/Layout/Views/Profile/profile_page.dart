@@ -20,6 +20,8 @@ import 'package:e_commers/Layout/widgets/shimmer_gearup.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';
 import 'package:e_commers/Layout/Views/Login/login_page.dart';
 
+import 'sensor/compass.dart';
+
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -259,11 +261,12 @@ class _ListProfileState extends State<ListProfile> {
               ),
               DividerLine(size: size),
               CardItemProfile(
-                text: 'Notifications',
+                text: 'Find Direction',
                 borderRadius: BorderRadius.zero,
                 backgroundColor: Color(0xff2b2c2c),
                 icon: Icons.notifications_none_rounded,
-                onPressed: () {},
+                onPressed: () =>
+                    Navigator.push(context, routeSlide(page: HomePage())),
               ),
               DividerLine(size: size),
               CardItemProfile(
