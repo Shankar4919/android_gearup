@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:e_commers/Accessory/helpers.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -23,6 +24,7 @@ class _SignInPageState extends State<SignInPage> {
     _emailController = TextEditingController();
     _passowrdController = TextEditingController();
     super.initState();
+    // initPlatform();
   }
 
   @override
@@ -131,4 +133,11 @@ class _SignInPageState extends State<SignInPage> {
       ),
     );
   }
+
+  // Future<void> initPlatform() async {
+  //   await OneSignal.shared.setAppId("");
+  //   await OneSignal.shared.getDeviceState().then((value) => {
+  //         print(value!.userId),
+  //       });
+  // }
 }

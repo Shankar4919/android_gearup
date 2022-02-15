@@ -1,5 +1,8 @@
 import 'package:e_commers/Accessory/helpers.dart';
 import 'package:e_commers/Bloc/user/user_bloc.dart';
+import 'package:e_commers/Layout/Views/Home/widgets/list_products_home.dart';
+import 'package:e_commers/Layout/Views/search/search.dart';
+import 'package:e_commers/Layout/Views/search/searchHome.dart';
 import 'package:e_commers/Service/urls.dart';
 import 'package:e_commers/Layout/Views/Home/home_page.dart';
 import 'package:e_commers/Layout/Views/Profile/profile_page.dart';

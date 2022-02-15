@@ -1,3 +1,5 @@
+import 'package:e_commers/Accessory/helpers.dart';
+import 'package:e_commers/Layout/Views/categories/product_for_category_page.dart';
 import 'package:e_commers/Models/Response/response_categories_home.dart';
 import 'package:e_commers/Service/product_services.dart';
 import 'package:e_commers/Layout/themes/colors_gearUp.dart';
@@ -22,21 +24,32 @@ class ListCategoriesHome extends StatelessWidget {
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: snapshot.data!.length,
-                  itemBuilder: (context, i) => Container(
-                    margin: EdgeInsets.only(right: 8.0),
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    width: 150,
-                    decoration: BoxDecoration(
-                        color: Color(0xffe4e6e7),
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Center(
-                        child: TextGearUp(
-                      text: snapshot.data![i].category,
-                      color: Colors.black,
-                      overflow: TextOverflow.ellipsis,
-                      fontSize: 17,
-                    )),
-                  ),
+                  itemBuilder: (context, i) => GestureDetector(
+                      onTap: () => Navigator.push(
+                            context,
+                            routeSlide(
+                              page: CategoryProductsPage(
+                                  uidCategory:
+                                      snapshot.data![i].uidCategory.toString(),
+                                  category: snapshot.data![i].category),
+                            ),
+                          ),
+                      child: Container(
+                        margin: EdgeInsets.only(right: 8.0),
+                        padding: EdgeInsets.symmetric(horizontal: 10.0),
+                        width: 150,
+                        decoration: BoxDecoration(
+                            color: Color(0xffe4e6e7),
+                            borderRadius: BorderRadius.circular(10.0)),
+                        child: Center(
+                          child: TextGearUp(
+                            text: snapshot.data![i].category,
+                            color: Colors.black,
+                            overflow: TextOverflow.ellipsis,
+                            fontSize: 17,
+                          ),
+                        ),
+                      )),
                 );
         },
       ),

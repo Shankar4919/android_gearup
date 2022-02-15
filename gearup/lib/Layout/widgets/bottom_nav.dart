@@ -49,7 +49,8 @@ class BottomNavigationGearUp extends StatelessWidget {
                 i: 4,
                 index: index,
                 iconString: 'assets/svg/search.svg',
-                onPressed: () {},
+                onPressed: () => Navigator.pushAndRemoveUntil(
+                    context, routeSlide(page: searchHome()), (_) => false),
               ),
               _ItemProfile()
             ],

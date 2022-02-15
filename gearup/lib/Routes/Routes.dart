@@ -13,4 +13,5 @@ Map<String, Widget Function(BuildContext context)> routes = {
   // 'cartPage': ( context ) => CartPage(),
   // 'favoritePage': ( context ) => FavoritePage(),
   // 'profilePage' : ( context ) => ProfilePage(),
+  // 'notification': (context) => notification();
 };

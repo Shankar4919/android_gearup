@@ -73,7 +73,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
                     child: StaggeredDualView(
                         itemCount: snapshot.data!.length,
                         spacing: 5,
-                        alturaElement: 0.15,
+                        alturaElement: 0,
                         aspectRatio: 0.8,
                         itemBuilder: (context, i) => Card(
                               shadowColor: Colors.black26,

@@ -1,5 +1,6 @@
 import 'package:e_commers/Bloc/product/product_bloc.dart';
 import 'package:e_commers/Accessory/helpers.dart';
+import 'package:e_commers/Layout/Views/Home/home_page.dart';
 import 'package:e_commers/Models/Response/response_products_home.dart';
 import 'package:e_commers/Service/product_services.dart';
 import 'package:e_commers/Layout/Views/favorite/widgets/list_favorite.dart';
@@ -33,6 +34,12 @@ class _FavoritePageState extends State<FavoritePage> {
       child: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
+          leading: IconButton(
+            splashRadius: 20,
+            icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
+            onPressed: () => Navigator.pushAndRemoveUntil(
+                context, routeSlide(page: HomePage()), (_) => false),
+          ),
           title: const TextGearUp(
               text: 'Favorites',
               color: Colors.white,
@@ -58,12 +65,12 @@ class _FavoritePageState extends State<FavoritePage> {
                         ],
                       )
                     : ListFavoriteProduct(products: snapshot.data!)),
-            Positioned(
-              bottom: 20,
-              child: Container(
-                  width: size.width,
-                  child: Align(child: BottomNavigationGearUp(index: 2))),
-            ),
+            // Positioned(
+            //   bottom: 20,
+            //   child: Container(
+            //       width: size.width,
+            //       child: Align(child: BottomNavigationGearUp(index: 2))),
+            // ),
           ],
         ),
       ),

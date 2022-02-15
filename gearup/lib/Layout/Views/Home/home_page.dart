@@ -1,6 +1,5 @@
 import 'package:e_commers/Bloc/product/product_bloc.dart';
 import 'package:e_commers/Accessory/helpers.dart';
-import 'package:e_commers/Layout/Views/Categories/categories_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commers/Bloc/General/general_bloc.dart';
@@ -107,22 +106,22 @@ class _ListHomeState extends State<ListHome> {
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
-              GestureDetector(
-                onTap: () => Navigator.of(context)
-                    .push(routeSlide(page: CategoriesPage())),
-                child: Row(
-                  children: const [
-                    TextGearUp(
-                      text: 'See All',
-                      fontSize: 17,
-                      color: Colors.white,
-                    ),
-                    SizedBox(width: 5.0),
-                    Icon(Icons.arrow_forward_ios_rounded,
-                        size: 18, color: Colors.white)
-                  ],
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () => Navigator.of(context)
+              //       .push(routeSlide(page: CategoriesPage())),
+              //   child: Row(
+              //     children: const [
+              //       // TextGearUp(
+              //       //   text: 'See All',
+              //       //   fontSize: 17,
+              //       //   color: Colors.white,
+              //       // ),
+              //       SizedBox(width: 5.0),
+              //       Icon(Icons.arrow_forward_ios_rounded,
+              //           size: 18, color: Colors.white)
+              //     ],
+              //   ),
+              // ),
             ],
           ),
           const SizedBox(height: 15.0),
@@ -136,18 +135,6 @@ class _ListHomeState extends State<ListHome> {
                 color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-              ),
-              Row(
-                children: const [
-                  TextGearUp(
-                    text: 'See All',
-                    fontSize: 17,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 5.0),
-                  Icon(Icons.arrow_forward_ios_rounded,
-                      size: 18, color: Colors.white)
-                ],
               ),
             ],
           ),
