@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-//Use geomagnetic rotation sensor as fallback on Android
+//Use geomagnetic, rotation sensor as fallback on Android
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

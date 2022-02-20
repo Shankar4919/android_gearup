@@ -6,6 +6,7 @@ import 'package:e_commers/Layout/Views/cart/widgets/payment_credit_cart.dart';
 import 'package:e_commers/Layout/Views/cart/widgets/street_address.dart';
 import 'package:e_commers/Layout/themes/colors_gearUp.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';
+import 'package:e_commers/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -111,6 +112,7 @@ class CheckOutPage extends StatelessWidget {
                 fontSize: 22,
                 width: size.width,
                 onPressed: () {
+                  orderNotify();
                   // cartBloc.add( OnMakePayment(amount: '${ (productBloc.state.total * 100 ).floor() }', creditCardFrave: cartBloc.state.creditCardFrave ) );
                   productBloc.add(OnSaveProductsBuyToDatabaseEvent(
                       '${productBloc.state.total}', productBloc.product));

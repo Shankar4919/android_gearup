@@ -1,3 +1,4 @@
+import 'package:e_commers/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commers/Bloc/user/user_bloc.dart';
@@ -161,6 +162,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 fontSize: 20,
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
+                    registerNotify();
                     userBloc.add(OnAddNewUser(
                         userController.text.trim(),
                         emailController.text.trim(),
