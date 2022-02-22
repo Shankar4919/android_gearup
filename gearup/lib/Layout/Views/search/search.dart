@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:e_commers/Service/product_services.dart';
 import 'package:e_commers/Models/Response/response_products_home.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:e_commers/Models/Product.dart';
 
 class searchPage extends StatefulWidget {
   const searchPage({Key? key}) : super(key: key);
@@ -58,7 +57,7 @@ class _searchPageState extends State<searchPage> {
                       borderRadius: BorderRadius.circular(50),
                       borderSide: BorderSide.none),
                   hintStyle: TextStyle(fontSize: 14, color: Colors.black),
-                  hintText: "Je"),
+                  hintText: "n"),
             ),
           ),
         ),

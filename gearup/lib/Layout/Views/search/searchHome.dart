@@ -66,7 +66,7 @@ class _searchHomeState extends State<searchHome> {
             bottom: 20,
             child: Container(
                 width: size.width,
-                child: Align(child: BottomNavigationGearUp(index: 2))),
+                child: Align(child: BottomNavigationGearUp(index: 4))),
           ),
         ],
       ),

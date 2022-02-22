@@ -20,6 +20,7 @@ import 'package:e_commers/Layout/Views/Profile/widgets/divider_line.dart';
 import 'package:e_commers/Layout/themes/colors_gearUp.dart';
 import 'package:e_commers/Layout/widgets/shimmer_gearup.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';
+import 'package:shake/shake.dart';
 
 import 'sensor/compass.dart';
 
@@ -66,6 +67,8 @@ class _ListProfileState extends State<ListProfile> {
   late ScrollController _scrollController;
   double scrollPrevious = 0;
 
+  late ShakeDetector detector;
+
   @override
   void initState() {
     _scrollController = ScrollController();
@@ -97,6 +100,9 @@ class _ListProfileState extends State<ListProfile> {
     final size = MediaQuery.of(context).size;
     final authBloc = BlocProvider.of<AuthBloc>(context);
 
+    detector = ShakeDetector.autoStart(onPhoneShake: () {
+      authBloc.add(LogOutEvent());
+    });
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is LogOutState) {

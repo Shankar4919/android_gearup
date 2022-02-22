@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:e_commers/Accessory/helpers.dart';
 import 'package:e_commers/Layout/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shake/shake.dart';
 // import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class SignInPage extends StatefulWidget {
@@ -19,22 +20,48 @@ class _SignInPageState extends State<SignInPage> {
   final _keyForm = GlobalKey<FormState>();
   bool isChangeSuffixIcon = true;
 
+  //accelerometer
+
+  late ShakeDetector detector;
+
   @override
   void initState() {
+    detector = ShakeDetector.autoStart(onPhoneShake: () {
+      _emailController.clear();
+      _passowrdController.clear();
+    });
     _emailController = TextEditingController();
     _passowrdController = TextEditingController();
     super.initState();
-    // initPlatform();
   }
 
   @override
   void dispose() {
+    detector.stopListening();
     _emailController.clear();
     _emailController.dispose();
     _passowrdController.clear();
     _passowrdController.dispose();
     super.dispose();
   }
+
+  // @override
+  // void initState() {
+  //   _emailController = TextEditingController();
+  //   _passowrdController = TextEditingController();
+  //   super.initState();
+
+  //   // initPlatform();
+  // }
+
+  // @override
+  // void dispose() {
+  //   _emailController.clear();
+  //   _emailController.dispose();
+  //   _passowrdController.clear();
+  //   _passowrdController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
